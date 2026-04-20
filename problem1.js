@@ -17,4 +17,5 @@ function smallestDivisibleNumber(n) {
     result++;
   }
 }
-console.log(smallestDivisibleNumber(10));
+console.log(smallestDivisibleNumber(25));
+//exponential

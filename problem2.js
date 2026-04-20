@@ -1,11 +1,8 @@
 const fs = require("fs");
 
 const rawData = fs.readFileSync("prediction.csv", "utf-8");
-// console.log(rawData);
+
 const dataArray = rawData.split(/\r?\n/);
-// console.log(data);
-// const header = dataArray[0].split(",");
-// console.log(header)
 let rows = dataArray.slice(1);
 // console.log(rows);
 const data = rows.map((row) => {
@@ -29,22 +26,17 @@ const totalplayers = data.length;
 const winRate = totalWon / totalplayers;
 const lossRate = totalLost / totalplayers;
 
-// console.log(totalLost);
-// console.log(totalWon);
-// console.log(totalplayers);
-// console.log(winRate);
-// console.log(lossRate);
 const checkCardType = (str) => {
   const allowedValues = ["diamonds", "spades", "hearts", "joker", "clubs"];
-  return allowedValues.includes(str.toLowerCase());
+  return allowedValues.includes(str);
 };
 const checkAnimalType = (str) => {
   const allowedValues = ["lion", "parrot", "fox", "seal", "snake"];
-  return allowedValues.includes(str.toLowerCase());
+  return allowedValues.includes(str);
 };
 const checkFruitType = (str) => {
   const allowedValues = ["apple", "banana", "mango", "papaya", "watermelon"];
-  return allowedValues.includes(str.toLowerCase());
+  return allowedValues.includes(str);
 };
 
 function probabilityToBeatBoss(targetSuit, targetAnimal, targetFruit) {
@@ -82,5 +74,5 @@ function probabilityToBeatBoss(targetSuit, targetAnimal, targetFruit) {
   return probability.toFixed(2) + "%";
 }
 
-const result = probabilityToBeatBoss("Hearts", "Snake", "Mango");
+const result = probabilityToBeatBoss("Hearts", null, "Mango");
 console.log(`${result}`);
