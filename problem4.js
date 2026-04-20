@@ -16,7 +16,7 @@ for (let i = 97; i <= 122; i++) {
         decrypted += String.fromCharCode(charCode);
       }
 
-      if (decrypted.toLowerCase().includes(" the ") && spaceCount > 15) {
+      if (decrypted.toLowerCase().includes(" the ") && spaceCount > 200) {
         console.log(
           `Password: ${String.fromCharCode(i)}${String.fromCharCode(j)}${String.fromCharCode(k)}`,
         );
